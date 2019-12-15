@@ -10,8 +10,43 @@ class Client
 
     public function __construct()
     {
-        
+        $nombre_args = func_num_args();
+        $lArg = func_get_args();
+        switch($nombre_args)
+        {
+            case 0:
+                $this->constructeurSansArguments();
+                break;
+            case 5:
+                $this->constructeurAvec5Arguments($lArg[0],$lArg[1],$lArg[2],$lArg[3],$lArg[4]);
+                break;
+            case 6:
+                $this->constructeurAvec6Arguments($lArg[0],$lArg[1],$lArg[2],$lArg[3],$lArg[4],$lArg[5]);
+                break;
+        }
     }
+    public function constructeurSansArguments()
+    {
+       
+    }
+    public function constructeurAvec6Arguments($id,$nom,$prenom,$telephone,$email,$adresse)
+    {
+        $this->id        = $id;
+        $this->nom       = $nom;
+        $this->prenom    = $prenom;
+        $this->telephone = $telephone;
+        $this->email     = $email;
+        $this->adresse   = $adresse;
+    }
+    public function constructeurAvec5Arguments($nom,$prenom,$telephone,$email,$adresse)
+    {
+        $this->nom       = $nom;
+        $this->prenom    = $prenom;
+        $this->telephone = $telephone;
+        $this->email     = $email;
+        $this->adresse   = $adresse;
+    }
+   
     public function getId()
     {
         return $this->id;

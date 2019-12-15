@@ -6,13 +6,56 @@ class Compte
     private $solde;
     private $dateCreation;
     private $etat;
-    private $idClasse;
+    private $client;
 
     public function __construct()
     {
-        
+        $nombre_args = func_num_args();
+        $lArg = func_get_args();
+        switch($nombre_args)
+        {
+            case 0:
+                $this->constructeurSansArguments();
+                break;
+            case 4:
+                $this->constructeurAvec4Arguments($lArg[0],$lArg[1],$lArg[2],$lArg[3]);
+                break;
+            case 5:
+                $this->constructeurAvec5Arguments($lArg[0],$lArg[1],$lArg[2],$lArg[3],$lArg[4]);
+                break;
+            case 6:
+                $this->constructeurAvec6Arguments($lArg[0],$lArg[1],$lArg[2],$lArg[3],$lArg[4],$lArg[5]);
+                break;
+        }
     }
-
+    public function constructeurSansArguments()
+    {
+       
+    }
+    public function constructeurAvec6Arguments($id,$numero,$solde,$dateCreation,$etat,$client)
+    {
+        $this->id           = $id;
+        $this->numero       = $numero;
+        $this->solde        = $solde;
+        $this->dateCreation = $dateCreation;
+        $this->etat         = $etat;
+        $this->client       = $client;
+    }
+    public function constructeurAvec5Arguments($numero,$solde,$dateCreation,$etat,$client)
+    {
+        $this->numero       = $numero;
+        $this->solde        = $solde;
+        $this->dateCreation = $dateCreation;
+        $this->etat         = $etat;
+        $this->client       = $client;
+    }
+    public function constructeurAvec4Arguments($numero,$solde,$etat,$client)
+    {
+        $this->numero       = $numero;
+        $this->solde        = $solde;
+        $this->etat         = $etat;
+        $this->client       = $client;
+    }
     public function getId()
     {
         return $this->id;
@@ -33,9 +76,9 @@ class Compte
     {
         return $this->etat;
     }
-    public function getIdClasse()
+    public function getClient()
     {
-        return $this->idClasse;
+        return $this->client;
     }
 
     public function setNumero($numero)
@@ -54,8 +97,8 @@ class Compte
     {
         $this->etat = $etat;
     }
-    public function setIdClasse($idClasse)
+    public function setClient($client)
     {
-        $this->idClasse = $idClasse;
+        $this->client = $client;
     }
 }
