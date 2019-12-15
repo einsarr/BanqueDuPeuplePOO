@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteRule ^localite/add$ src/view/localite/add.php
+RewriteRule ^localite/list$ src/view/localite/list.php
+RewriteRule ^localite/edit$ src/view/localite/edit.php
